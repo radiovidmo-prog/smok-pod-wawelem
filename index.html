@@ -39,7 +39,6 @@ html, body {
   padding: 1.5rem;
 }
 
-/* ── NOISE TEXTURE OVERLAY ── */
 body::after {
   content: '';
   position: fixed;
@@ -50,32 +49,18 @@ body::after {
   background-size: 200px 200px;
 }
 
-/* ── MAP BACKGROUND ── */
 .map-bg {
   position: fixed;
   inset: 0;
   background:
     radial-gradient(ellipse at 30% 40%, rgba(30,80,20,0.12) 0%, transparent 50%),
     radial-gradient(ellipse at 70% 60%, rgba(20,50,10,0.1) 0%, transparent 40%),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 31px,
-      rgba(0,0,0,0.07) 31px,
-      rgba(0,0,0,0.07) 32px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 31px,
-      rgba(0,0,0,0.07) 31px,
-      rgba(0,0,0,0.07) 32px
-    ),
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(0,0,0,0.07) 31px, rgba(0,0,0,0.07) 32px),
+    repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(0,0,0,0.07) 31px, rgba(0,0,0,0.07) 32px),
     linear-gradient(160deg, #0e1a0c 0%, #0a1208 40%, #080e06 100%);
   z-index: 0;
 }
 
-/* ── OUTER FRAME (wood border) ── */
 .outer-frame {
   position: relative;
   z-index: 1;
@@ -89,24 +74,17 @@ body::after {
     0 0 0 6px #0a0604,
     0 8px 40px rgba(0,0,0,0.9),
     inset 0 1px 0 rgba(255,200,100,0.08);
+  animation: fadein 0.6s ease both;
 }
 
-/* wood grain lines */
 .outer-frame::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    92deg,
-    transparent 0px,
-    transparent 18px,
-    rgba(0,0,0,0.08) 18px,
-    rgba(0,0,0,0.08) 19px
-  );
+  background: repeating-linear-gradient(92deg, transparent 0px, transparent 18px, rgba(0,0,0,0.08) 18px, rgba(0,0,0,0.08) 19px);
   pointer-events: none;
 }
 
-/* ── INNER PANEL (stone/parchment) ── */
 .inner-panel {
   position: relative;
   background: linear-gradient(175deg, #1a1408 0%, #120e06 100%);
@@ -116,7 +94,6 @@ body::after {
   padding: 2rem 2.2rem 1.8rem;
 }
 
-/* corner rivets */
 .inner-panel::before,
 .inner-panel::after,
 .rivet-br, .rivet-bl {
@@ -133,7 +110,6 @@ body::after {
 .rivet-br { position: absolute; bottom: 8px; right: 8px; }
 .rivet-bl { position: absolute; bottom: 8px; left: 8px; }
 
-/* ── TITLE AREA ── */
 .title-block {
   text-align: center;
   margin-bottom: 1.4rem;
@@ -146,15 +122,7 @@ body::after {
   position: absolute;
   bottom: 0; left: 10%; right: 10%;
   height: 2px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    var(--gold-dim) 15%,
-    var(--gold) 40%,
-    var(--gold-bright) 50%,
-    var(--gold) 60%,
-    var(--gold-dim) 85%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, var(--gold-dim) 15%, var(--gold) 40%, var(--gold-bright) 50%, var(--gold) 60%, var(--gold-dim) 85%, transparent 100%);
 }
 
 .dragon-sigil {
@@ -166,7 +134,7 @@ body::after {
 }
 @keyframes glow-pulse {
   0%,100% { filter: drop-shadow(0 0 10px rgba(180,60,0,0.7)) drop-shadow(0 0 3px rgba(240,150,0,0.3)); }
-  50%      { filter: drop-shadow(0 0 22px rgba(220,80,0,1))   drop-shadow(0 0 8px rgba(255,180,0,0.6)); }
+  50%      { filter: drop-shadow(0 0 22px rgba(220,80,0,1)) drop-shadow(0 0 8px rgba(255,180,0,0.6)); }
 }
 
 .title-main {
@@ -175,10 +143,7 @@ body::after {
   color: var(--gold-bright);
   letter-spacing: 0.06em;
   line-height: 1.1;
-  text-shadow:
-    0 0 20px rgba(200,130,0,0.6),
-    0 1px 0 rgba(0,0,0,0.9),
-    0 -1px 0 rgba(255,220,100,0.2);
+  text-shadow: 0 0 20px rgba(200,130,0,0.6), 0 1px 0 rgba(0,0,0,0.9), 0 -1px 0 rgba(255,220,100,0.2);
   margin-bottom: 0.3rem;
 }
 
@@ -190,7 +155,6 @@ body::after {
   color: var(--gold-dim);
 }
 
-/* ── SCROLL / DESCRIPTION ── */
 .scroll-box {
   position: relative;
   background: linear-gradient(170deg, #1c140a, #160f06);
@@ -200,7 +164,6 @@ body::after {
   padding: 1.1rem 1.4rem;
   margin-bottom: 1.4rem;
 }
-/* scroll curl top */
 .scroll-box::before {
   content: '';
   position: absolute;
@@ -218,7 +181,6 @@ body::after {
   text-align: center;
 }
 
-/* ── STATS ROW ── */
 .stats-row {
   display: grid;
   grid-template-columns: 1fr 1px 1fr 1px 1fr;
@@ -232,13 +194,8 @@ body::after {
   margin: 8px 0;
 }
 
-.stat {
-  padding: 0.9rem 0.5rem;
-  text-align: center;
-}
-
+.stat { padding: 0.9rem 0.5rem; text-align: center; }
 .stat-icon { font-size: 1.4rem; display: block; margin-bottom: 0.3rem; }
-
 .stat-val {
   font-family: 'Metamorphous', serif;
   font-size: 1.3rem;
@@ -246,7 +203,6 @@ body::after {
   display: block;
   text-shadow: 0 0 10px rgba(200,130,0,0.5);
 }
-
 .stat-label {
   font-size: 0.62rem;
   letter-spacing: 0.18em;
@@ -257,7 +213,6 @@ body::after {
   display: block;
 }
 
-/* ── VICTORY CONDITIONS ── */
 .victory-block {
   position: relative;
   border: 1px solid #2a1e0a;
@@ -265,7 +220,6 @@ body::after {
   padding: 1rem 1.2rem 1rem 3rem;
   margin-bottom: 1.6rem;
 }
-
 .victory-icon {
   position: absolute;
   left: 0.9rem;
@@ -274,7 +228,6 @@ body::after {
   font-size: 1.3rem;
   filter: drop-shadow(0 0 6px rgba(180,60,0,0.6));
 }
-
 .victory-label {
   font-family: 'Metamorphous', serif;
   font-size: 0.62rem;
@@ -293,17 +246,25 @@ body::after {
   background: linear-gradient(90deg, var(--red-accent), transparent);
   opacity: 0.4;
 }
-
 .victory-text {
   font-size: 0.92rem;
   color: var(--parch-dark);
   line-height: 1.65;
 }
 
-/* ── DOWNLOAD BUTTON ── */
-.btn-wrap {
-  position: relative;
+.btn-download.btn-secondary {
+  background: linear-gradient(180deg, #1e1408 0%, #140e04 50%, #0e0a02 100%);
+  border-color: var(--gold-dim);
+  color: var(--text-body);
+  font-size: 0.9rem;
 }
+.btn-download.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+  background: linear-gradient(180deg, #2a1c0a 0%, #1a1006 50%, #100804 100%);
+}
+
+.btn-wrap { position: relative; }
 
 .btn-download {
   display: flex;
@@ -322,16 +283,10 @@ body::after {
   color: var(--gold-bright);
   background: linear-gradient(180deg, #3a1a08 0%, #250f04 50%, #1a0a02 100%);
   border: 2px solid var(--gold-dim);
-  box-shadow:
-    0 0 0 1px #0a0604,
-    inset 0 1px 0 rgba(255,200,80,0.15),
-    inset 0 -1px 0 rgba(0,0,0,0.5),
-    0 4px 16px rgba(0,0,0,0.7);
+  box-shadow: 0 0 0 1px #0a0604, inset 0 1px 0 rgba(255,200,80,0.15), inset 0 -1px 0 rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.7);
   transition: all 0.15s;
   overflow: hidden;
 }
-
-/* shine sweep */
 .btn-download::before {
   content: '';
   position: absolute;
@@ -339,28 +294,19 @@ body::after {
   background: linear-gradient(90deg, transparent, rgba(255,210,100,0.12), transparent);
   transition: left 0.4s ease;
 }
-
 .btn-download:hover::before { left: 140%; }
-
 .btn-download:hover {
   border-color: var(--gold);
   color: #fff8e0;
-  box-shadow:
-    0 0 0 1px #0a0604,
-    0 0 20px rgba(180,80,0,0.5),
-    inset 0 1px 0 rgba(255,200,80,0.25),
-    inset 0 -1px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0 0 1px #0a0604, 0 0 20px rgba(180,80,0,0.5), inset 0 1px 0 rgba(255,200,80,0.25), inset 0 -1px 0 rgba(0,0,0,0.5);
   background: linear-gradient(180deg, #4a2210 0%, #300f04 50%, #200a02 100%);
 }
-
 .btn-download:active {
   transform: translateY(1px);
   box-shadow: 0 0 0 1px #0a0604, 0 2px 8px rgba(0,0,0,0.8), inset 0 2px 4px rgba(0,0,0,0.4);
 }
-
 .btn-icon { font-size: 1.1rem; }
 
-/* ── FOOTNOTE ── */
 .footnote {
   text-align: center;
   margin-top: 1rem;
@@ -371,10 +317,6 @@ body::after {
   opacity: 0.7;
 }
 
-/* ── LOAD ANIMATION ── */
-.outer-frame {
-  animation: fadein 0.6s ease both;
-}
 @keyframes fadein {
   from { opacity: 0; transform: scale(0.97) translateY(8px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
@@ -390,26 +332,22 @@ body::after {
     <span class="rivet-br"></span>
     <span class="rivet-bl"></span>
 
-    <!-- TITLE -->
     <div class="title-block">
       <span class="dragon-sigil">🐉</span>
       <h1 class="title-main">Smok pod Wawelem</h1>
       <p class="title-sub">Heroes of Might &amp; Magic III &nbsp;·&nbsp; Mapa przygodowa</p>
     </div>
 
-    <!-- DESCRIPTION -->
     <div class="scroll-box">
       <p class="scroll-text">
-        W podziemiach zamku na Wawelu zagnieździł się potężny smok i sieje spustoszenie w okolicach Krakowa.
-        Wciel się w rolę Brunona z Bronowic lub księcia Kraka i pokonaj bestię — zanim zrobi to za ciebie zdradziecki Mistrz Twardowski.
+        W podziemiach zamku na Wawelu zagnieździł się potężny smok, który sieje spustoszenie w okolicach Krakowa. Gracz wciela się w rolę księcia Kraka lub Brunona z Bronowic, których zadaniem jest pokonanie bestii i ochrona miasta, albo Mistrza Twardowskiego, którego nic nie powstrzyma przed przejęciem władzy nad grodem.
       </p>
     </div>
 
-    <!-- STATS -->
     <div class="stats-row">
       <div class="stat">
         <span class="stat-icon">⚔️</span>
-        <span class="stat-val">1–3</span>
+        <span class="stat-val">3</span>
         <span class="stat-label">Gracze</span>
       </div>
       <div class="stat-sep"></div>
@@ -426,20 +364,25 @@ body::after {
       </div>
     </div>
 
-    <!-- VICTORY -->
     <div class="victory-block">
       <span class="victory-icon">🏆</span>
       <div class="victory-label">Fabuła rozgrywki</div>
       <p class="victory-text">
         Od wielu miesięcy w Krakowie panuje chaos. W jaskiniach pod Wawelem zagnieździł się smok, którego ryki niosą się po całej okolicy, a jego ataki zmuszają księcia Kraka do trzymania wszystkich zbrojnych przy murach zamku. Miasto żyje w strachu. Kto pokona bestię, zyska nie tylko sławę, lecz także prawo do rządzenia całymi włościami. 
 
-Na drodze stoi Mistrz Twardowski — czarnoksiężnik, który sam pragnie zdobyć władzę nad Krakowem. Skupienie się Kraka i jego sojuszników na walce ze smokiem jest dla niego idealną okazją do sforsowania Wawelu.
+Na drodze stoi Mistrz Twardowski — czarnoksiężnik, który sam pragnie zdobyć władzę nad Krakowem. Skupienie się Kraka na walce ze smokiem jest dla niego idealną okazją do sforsowania Wawelu.
       </p>
     </div>
 
-    <!-- DOWNLOAD -->
+    <div class="btn-wrap" style="margin-bottom: 0.6rem;">
+      <a href="https://docs.google.com/spreadsheets/d/1k-AUSRQ5qrMjR6nK5rt5UEE6sdfIK1_g/edit?usp=sharing&ouid=116229691411464280977&rtpof=true&sd=true" class="btn-download btn-secondary" target="_blank">
+        <span class="btn-icon">📜</span>
+        Zobacz szczegółowe informacje
+      </a>
+    </div>
+
     <div class="btn-wrap">
-      <a href="#" class="btn-download" id="downloadBtn">
+      <a href="WKLEJ_LINK_DO_PLIKU_H3M" class="btn-download" target="_blank">
         <span class="btn-icon">⬇</span>
         Pobierz mapę (.h3m)
       </a>
@@ -449,14 +392,6 @@ Na drodze stoi Mistrz Twardowski — czarnoksiężnik, który sam pragnie zdoby�
 
   </div>
 </div>
-
-<script>
-  document.getElementById('downloadBtn').addEventListener('click', e => {
-    e.preventDefault();
-    // Podmień href na bezpośredni link do pliku .h3m
-    alert('Wklej tutaj link do pliku .h3m');
-  });
-</script>
 
 </body>
 </html>
