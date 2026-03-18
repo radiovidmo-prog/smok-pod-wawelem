@@ -430,7 +430,7 @@ body::after {
       <div class="stat-sep"></div>
       <div class="stat">
         <span class="stat-icon">🗺️</span>
-        <span class="stat-val">HoTA</span>
+        <span class="stat-val">HotA</span>
         <span class="stat-label">Wersja gry</span>
       </div>
       <div class="stat-sep"></div>
@@ -455,11 +455,11 @@ body::after {
       <span class="victory-icon">📌</span>
       <div class="victory-label">Dodatkowe informacje</div>
       <p class="victory-text" style="line-height: 1.9;">
-        1. Mapa wymaga zainstalowania dodatku Horn of the Abyss. Jeśli nie wiesz, jak to zrobić, zapoznaj się z <a href="https://www.youtube.com/watch?v=lnhP90D3_24" target="_blank" style="color: var(--gold); text-decoration: underline;">poradnikiem tutaj</a>.<br><br>
-        2. Jeżeli grasz sam, wybierz Zamek i Kraka jako twojego bohatera.<br><br>
-        3. Na Rynku Głównym znajduje się Karczma u Wierzynka — co tydzień będziesz mógł się tam zapoznać z pogłoskami, które mogą pomóc w grze.<br><br>
-        4. Pamiętaj o czytaniu tabliczek.<br><br>
-        5. Mapa nie jest idealna 🙂 Jeśli masz jakieś pomysły na wprowadzenie zmian, zrób to śmiało i podziel się efektami — wyślij mapę do nas (@ jest na samym dole).<br><br>
+        1. Mapa wymaga zainstalowania dodatku Horn of the Abyss. Jeśli nie wiesz, jak to zrobić, zapoznaj się z <a href="https://www.youtube.com/watch?v=lnhP90D3_24" target="_blank" style="color: var(--gold); text-decoration: underline;">poradnikiem tutaj</a>.<br>
+        2. Jeżeli grasz sam, wybierz Zamek i Kraka jako twojego bohatera.<br>
+        3. Na Rynku Głównym znajduje się Karczma u Wierzynka — co tydzień będziesz mógł się tam zapoznać z pogłoskami, które mogą pomóc w grze.<br>
+        4. Pamiętaj o czytaniu tabliczek.<br>
+        5. Mapa nie jest idealna 🙂 Jeśli masz jakieś pomysły na wprowadzenie zmian, zrób to śmiało i podziel się efektami — wyślij mapę do nas (@ jest na samym dole).<br>
         6. Powodzenia!
       </p>
     </div>
@@ -488,7 +488,20 @@ body::after {
 
 <script>
   function copyEmail() {
-    navigator.clipboard.writeText('radiovidmo@gmail.com');
+    const email = 'radiovidmo@gmail.com';
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(email);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = email;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
     const confirm = document.getElementById('emailConfirm');
     confirm.style.opacity = '1';
     setTimeout(() => confirm.style.opacity = '0', 2000);
